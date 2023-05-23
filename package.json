@@ -1,0 +1,17 @@
+{
+  "name": "python-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "docker:dev:build": "docker build -f Dockerfile.dev --platform linux/amd64  -t nodetest .",
+    "start:dev:server": "docker run --platform linux/amd64 -v $(pwd):/test-py-project nodetest",
+    "start:py:dev": "nodemon test.py"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

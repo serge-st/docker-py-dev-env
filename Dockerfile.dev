@@ -1,0 +1,17 @@
+FROM amd64/python:3.11
+
+RUN apt update -y
+RUN apt install -y curl
+RUN curl -fsSL https://deb.nodesource.com/setup_19.x | bash
+RUN apt install nodejs
+
+WORKDIR /test-py-project
+
+VOLUME /test-py-project/node_modules
+
+COPY package.json .
+RUN npm i
+
+COPY test.py .
+
+CMD ["npm", "run", "start:py:dev"]
